@@ -2,13 +2,13 @@
 import { useEffect, useRef, useState } from "react";
 
 const VAULT =
-  '<svg viewBox="0 0 200 200"><rect x="46" y="50" width="108" height="100" rx="12" fill="none" stroke="#7f00e2" stroke-width="3"/><circle cx="100" cy="100" r="26" fill="none" stroke="#b14dff" stroke-width="3"/><circle cx="100" cy="100" r="6" fill="#7f00e2"/><path d="M100 74v8M100 118v8M74 100h8M118 100h8" stroke="#6a0fc0" stroke-width="3"/></svg>';
+  '<svg viewBox="0 0 200 200"><rect x="46" y="50" width="108" height="100" rx="12" fill="none" stroke="#0055ff" stroke-width="3"/><circle cx="100" cy="100" r="26" fill="none" stroke="#4da6ff" stroke-width="3"/><circle cx="100" cy="100" r="6" fill="#0055ff"/><path d="M100 74v8M100 118v8M74 100h8M118 100h8" stroke="#0036cc" stroke-width="3"/></svg>';
 const LINE =
-  '<svg viewBox="0 0 200 200"><rect x="40" y="76" width="120" height="74" rx="12" fill="none" stroke="#b14dff" stroke-width="3"/><path d="M40 100h120" stroke="#6a0fc0" stroke-width="3"/><rect x="52" y="118" width="44" height="9" rx="4" fill="#7f00e2"/><circle cx="138" cy="58" r="16" fill="none" stroke="#7f00e2" stroke-width="3"/><path d="M138 50v16M130 58h16" stroke="#7f00e2" stroke-width="3"/></svg>';
+  '<svg viewBox="0 0 200 200"><rect x="40" y="76" width="120" height="74" rx="12" fill="none" stroke="#4da6ff" stroke-width="3"/><path d="M40 100h120" stroke="#0036cc" stroke-width="3"/><rect x="52" y="118" width="44" height="9" rx="4" fill="#0055ff"/><circle cx="138" cy="58" r="16" fill="none" stroke="#0055ff" stroke-width="3"/><path d="M138 50v16M130 58h16" stroke="#0055ff" stroke-width="3"/></svg>';
 const SPEND =
-  '<svg viewBox="0 0 200 200"><path d="M60 120l40-40 30 30 30-50" fill="none" stroke="#7f00e2" stroke-width="3" stroke-linecap="round"/><circle cx="160" cy="60" r="5" fill="#b14dff"/><path d="M100 40l4 12h13l-10 8 4 13-11-8-11 8 4-13-10-8h13z" fill="#b14dff" opacity=".9"/></svg>';
+  '<svg viewBox="0 0 200 200"><path d="M60 120l40-40 30 30 30-50" fill="none" stroke="#0055ff" stroke-width="3" stroke-linecap="round"/><circle cx="160" cy="60" r="5" fill="#4da6ff"/><path d="M100 40l4 12h13l-10 8 4 13-11-8-11 8 4-13-10-8h13z" fill="#4da6ff" opacity=".9"/></svg>';
 const SETTLE =
-  '<svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="50" fill="none" stroke="#6a0fc0" stroke-width="3"/><path d="M78 100l16 16 30-34" fill="none" stroke="#7f00e2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M100 40a60 60 0 0 1 52 30" fill="none" stroke="#b14dff" stroke-width="3" stroke-linecap="round"/><path d="M150 62l4 14-14-2" fill="none" stroke="#b14dff" stroke-width="3" stroke-linecap="round"/></svg>';
+  '<svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="50" fill="none" stroke="#0036cc" stroke-width="3"/><path d="M78 100l16 16 30-34" fill="none" stroke="#0055ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M100 40a60 60 0 0 1 52 30" fill="none" stroke="#4da6ff" stroke-width="3" stroke-linecap="round"/><path d="M150 62l4 14-14-2" fill="none" stroke="#4da6ff" stroke-width="3" stroke-linecap="round"/></svg>';
 
 const STEPS = [
   {

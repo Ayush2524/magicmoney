@@ -46,7 +46,7 @@ export default function HeroVisual() {
                 cy="95"
                 r="78"
                 fill="none"
-                stroke="rgba(127,0,226,.12)"
+                stroke="rgba(0,85,255,.12)"
                 strokeWidth="12"
               />
               <circle
@@ -64,8 +64,8 @@ export default function HeroVisual() {
               />
               <defs>
                 <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stopColor="#b14dff" />
-                  <stop offset="1" stopColor="#6a0fc0" />
+                  <stop offset="0" stopColor="#4da6ff" />
+                  <stop offset="1" stopColor="#0036cc" />
                 </linearGradient>
               </defs>
             </svg>
