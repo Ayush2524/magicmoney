@@ -7,7 +7,8 @@ export default function Footer() {
       <div className="wrap">
         <div className="foot-in">
           <Link href="/" className="logo">
-            <Image src="/logo.png" alt="Magic Money" width={100} height={30} style={{ objectFit: "contain" }} />
+            <Image src="/logo.png" alt="Magic Money logo" width={28} height={28} style={{ objectFit: "contain" }} />
+            Magic&nbsp;Money
           </Link>
           <div className="foot-links">
             <Link href="/">Home</Link>

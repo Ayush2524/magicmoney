@@ -18,7 +18,8 @@ export default function Nav() {
     <nav>
       <div className="nav-in">
         <Link href="/" className="logo" onClick={() => setOpen(false)}>
-          <Image src="/logo.png" alt="Magic Money" width={120} height={36} style={{ objectFit: "contain" }} />
+          <Image src="/logo.png" alt="Magic Money logo" width={32} height={32} style={{ objectFit: "contain" }} />
+          Magic&nbsp;Money
         </Link>
         <div className={`nav-links${open ? " open" : ""}`}>
           {links.map((l) => (

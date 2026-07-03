@@ -32,7 +32,10 @@ export default function HeroVisual() {
       <div className="phone">
         <div className="screen">
           <div className="scr-top">
-            <Image src="/logo.png" alt="Magic Money" width={48} height={20} style={{ objectFit: "contain" }} />
+            <span className="scr-logo">
+              <Image src="/logo.png" alt="Magic Money logo" width={18} height={18} style={{ objectFit: "contain", verticalAlign: "middle" }} />
+              <span style={{ marginLeft: "5px" }}>MM</span>
+            </span>
             <span>● live</span>
           </div>
           <div className="lbl-mini" style={{ marginTop: "16px" }}>
