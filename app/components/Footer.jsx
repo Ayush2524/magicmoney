@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -6,8 +7,7 @@ export default function Footer() {
       <div className="wrap">
         <div className="foot-in">
           <Link href="/" className="logo">
-            <span className="spark" style={{ width: "11px", height: "11px" }} />
-            Magic&nbsp;Money
+            <Image src="/logo.png" alt="Magic Money" width={100} height={30} style={{ objectFit: "contain" }} />
           </Link>
           <div className="foot-links">
             <Link href="/">Home</Link>

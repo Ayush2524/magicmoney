@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 export default function HeroVisual() {
   const arcRef = useRef(null);
@@ -31,9 +32,7 @@ export default function HeroVisual() {
       <div className="phone">
         <div className="screen">
           <div className="scr-top">
-            <span className="scr-logo">
-              M<i>M</i>
-            </span>
+            <Image src="/logo.png" alt="Magic Money" width={48} height={20} style={{ objectFit: "contain" }} />
             <span>● live</span>
           </div>
           <div className="lbl-mini" style={{ marginTop: "16px" }}>

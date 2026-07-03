@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
@@ -17,8 +18,7 @@ export default function Nav() {
     <nav>
       <div className="nav-in">
         <Link href="/" className="logo" onClick={() => setOpen(false)}>
-          <span className="spark" />
-          Magic&nbsp;Money
+          <Image src="/logo.png" alt="Magic Money" width={120} height={36} style={{ objectFit: "contain" }} />
         </Link>
         <div className={`nav-links${open ? " open" : ""}`}>
           {links.map((l) => (
