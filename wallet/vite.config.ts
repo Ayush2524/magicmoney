@@ -9,6 +9,8 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 // https://vite.dev/config/
 export default defineConfig({
+    // Served at themagicmoney.in/wallet/ via a rewrite from the landing page.
+    base: '/wallet/',
     plugins: [
         tsconfigPaths({ projects: ['tsconfig.app.json'] }),
         devtools(),
@@ -30,10 +32,10 @@ export default defineConfig({
             // The Canton participant's raw Ledger JSON API doesn't send
             // CORS headers, so browser requests to it directly are blocked.
             // Proxying it through the dev server makes requests same-origin.
-            '/ledger-api': {
+            '/wallet/ledger-api': {
                 target: 'http://localhost:2975',
                 changeOrigin: true,
-                rewrite: (path) => path.replace(/^\/ledger-api/, ''),
+                rewrite: (path) => path.replace(/^\/wallet\/ledger-api/, ''),
             },
         },
     },

@@ -1,6 +1,6 @@
 {
     "ledgerApi": {
-        "baseUrl": "/ledger-api"
+        "baseUrl": "/wallet/ledger-api"
     },
     "auth": {
         "method": "self_signed",

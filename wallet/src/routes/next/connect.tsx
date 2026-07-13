@@ -45,7 +45,7 @@ function RouteComponent() {
         >
             <Box
                 component="img"
-                src="/logo.png"
+                src={`${import.meta.env.BASE_URL}logo.png`}
                 alt="Magic Money"
                 sx={{ width: 56, height: 56, objectFit: 'contain' }}
             />

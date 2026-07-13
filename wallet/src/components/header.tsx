@@ -73,7 +73,7 @@ export const Header = () => {
                     >
                         <Box
                             component="img"
-                            src="/logo.png"
+                            src={`${import.meta.env.BASE_URL}logo.png`}
                             alt="Magic Money"
                             sx={{ width: 28, height: 28, objectFit: 'contain' }}
                         />

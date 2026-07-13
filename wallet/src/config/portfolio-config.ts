@@ -4,7 +4,7 @@
 import { type ZodError } from 'zod'
 import { portfolioConfigSchema, type PortfolioConfig } from '@lib/schemas'
 
-const DEFAULT_CONFIG_URL = '/config.json'
+const DEFAULT_CONFIG_URL = `${import.meta.env.BASE_URL}config.json`
 
 const formatConfigError = (error: ZodError): string =>
     error.issues

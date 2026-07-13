@@ -27,6 +27,7 @@ const queryClient = new QueryClient({
 
 const router = createRouter({
     routeTree,
+    basepath: '/wallet',
     context: { queryClient },
     defaultPreload: 'intent',
     scrollRestoration: true,
