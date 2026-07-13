@@ -34,8 +34,8 @@ export default function Nav() {
           ))}
         </div>
         <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-          <Link className="btn" href="/economics">
-            Get Magic Money
+          <Link className="btn" href="/wallet">
+            Launch Web App
           </Link>
           <button
             className="menu-btn"

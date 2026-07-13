@@ -217,8 +217,8 @@ export default function Home() {
             holding and <span className="em">spending.</span>
           </h2>
           <p>
-            On iOS and Android, with a browser extension to match. Setup takes
-            about a minute.
+            No install required — open it in your browser. Setup takes about
+            a minute.
           </p>
           <div className="store-row" style={{ justifyContent: "center" }}>
             <Stores />
