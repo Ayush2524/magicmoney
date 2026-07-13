@@ -1,5 +1,7 @@
+import { useEffect, useState } from 'react'
 import { Box, Chip, Typography } from '@mui/material'
 import { createFileRoute, Navigate } from '@tanstack/react-router'
+import { toast } from 'sonner'
 import { PillButton } from '@components/ui/PillButton'
 import { useConnection } from '@contexts/ConnectionContext'
 
@@ -8,7 +10,21 @@ export const Route = createFileRoute('/next/connect')({
 })
 
 function RouteComponent() {
-    const { connect, status } = useConnection()
+    const { connect, status, error } = useConnection()
+    const [connecting, setConnecting] = useState(false)
+
+    useEffect(() => {
+        if (error) {
+            setConnecting(false)
+            toast.error(`Couldn't connect: ${error}`)
+        }
+    }, [error])
+
+    useEffect(() => {
+        if (status?.connection?.isConnected) {
+            setConnecting(false)
+        }
+    }, [status?.connection?.isConnected])
 
     if (status?.connection?.isConnected) {
         return <Navigate to="/next/dashboard" />
@@ -68,11 +84,15 @@ function RouteComponent() {
                 Spend your Canton. Never sell it.
             </Typography>
             <PillButton
-                onClick={() => connect()}
+                onClick={() => {
+                    setConnecting(true)
+                    connect()
+                }}
+                disabled={connecting}
                 size="large"
                 sx={{ mt: 2, px: 4, py: 2 }}
             >
-                Connect Wallet
+                {connecting ? 'Creating your wallet…' : 'Connect Wallet'}
             </PillButton>
         </Box>
     )

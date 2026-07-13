@@ -91,7 +91,10 @@ export const getLedgerProvider = (): walletSdk.LedgerProvider => {
     if (!currentConfig) throw new Error('Wallet client is not configured')
     if (!ledgerProviderSingleton) {
         ledgerProviderSingleton = new walletSdk.LedgerProvider({
-            baseUrl: currentConfig.ledgerApi.baseUrl,
+            baseUrl: new URL(
+                currentConfig.ledgerApi.baseUrl,
+                window.location.origin
+            ),
             accessTokenProvider: getAccessTokenProvider(),
         })
     }

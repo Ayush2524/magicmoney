@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { useCallback, useEffect, useState } from 'react'
+import { toast } from 'sonner'
 import {
     configureWalletClient,
     createWallet,
@@ -60,6 +61,7 @@ export const ConnectionProvider: React.FC<{ children: React.ReactNode }> = ({
                     const message =
                         err instanceof Error ? err.message : String(err)
                     setError(message)
+                    toast.error(`Couldn't connect: ${message}`)
                 })
         },
         []
@@ -81,7 +83,12 @@ export const ConnectionProvider: React.FC<{ children: React.ReactNode }> = ({
     const status: ConnectionStatus | undefined = wallet
         ? {
               connection: { isConnected: true },
-              network: { networkId: new URL(config.ledgerApi.baseUrl).host },
+              network: {
+                  networkId: new URL(
+                      config.ledgerApi.baseUrl,
+                      window.location.origin
+                  ).host,
+              },
           }
         : undefined
 

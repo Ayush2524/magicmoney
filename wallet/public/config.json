@@ -1,6 +1,6 @@
 {
     "ledgerApi": {
-        "baseUrl": "http://localhost:2975"
+        "baseUrl": "/ledger-api"
     },
     "auth": {
         "method": "self_signed",

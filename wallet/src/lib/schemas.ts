@@ -48,7 +48,11 @@ export const portfolioConfigSchema = z
     .object({
         ledgerApi: z
             .object({
-                baseUrl: HttpUrl,
+                // Absolute URL, or a path relative to the app's own origin
+                // (e.g. "/ledger-api" via a dev-server/reverse-proxy rewrite
+                // — needed because the raw Ledger JSON API doesn't send CORS
+                // headers, so cross-origin browser requests to it fail).
+                baseUrl: z.string().min(1),
             })
             .strict(),
         auth: tokenProviderConfigSchema,
