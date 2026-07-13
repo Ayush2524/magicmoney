@@ -1,0 +1,29 @@
+{
+    "ledgerApi": {
+        "baseUrl": "http://localhost:2975"
+    },
+    "auth": {
+        "method": "self_signed",
+        "issuer": "unsafe-auth",
+        "credentials": {
+            "clientId": "ledger-api-user",
+            "clientSecret": "unsafe",
+            "audience": "https://canton.network.global",
+            "scope": ""
+        }
+    },
+    "amulet": {
+        "validatorUrl": "http://localhost:2000/api/validator",
+        "registry": "http://scan.localhost:4000"
+    },
+    "token": {
+        "validatorUrl": "http://localhost:2000/api/validator",
+        "registries": [
+            {
+                "name": "Local Scan",
+                "partyId": "",
+                "url": "http://scan.localhost:4000"
+            }
+        ]
+    }
+}
