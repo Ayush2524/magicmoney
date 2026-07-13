@@ -151,34 +151,6 @@ export const darkPortfolioTokens: ThemeOptions = {
     },
 }
 
-// Magic Money is a dark-only brand; "light" is a slightly lifted dark variant
-// rather than a true light theme, so the theme toggle stays functional without
-// a second design language.
-export const lightPortfolioTokens: ThemeOptions = {
-    ...darkPortfolioTokens,
-    palette: {
-        ...darkPortfolioTokens.palette,
-        background: {
-            default: '#020c14', // --ink-2
-            paper: portfolioColors.grey54,
-        },
-    },
-    typography,
-    portfolio: {
-        ...portfolioAppTokens.portfolio,
-        sidebar: {
-            background: portfolioColors.grey54,
-            active: 'rgba(0,85,255,.14)',
-        },
-        surface: {
-            subtle: portfolioColors.grey54,
-            border: 'rgba(0,85,255,.2)',
-            required: portfolioColors.grey69,
-        },
-        status: darkPortfolioTokens.portfolio!.status,
-    },
-}
-
 export const portfolioComponents: ThemeOptions['components'] = {
     MuiCssBaseline: {
         styleOverrides: (theme) => ({
@@ -263,11 +235,6 @@ export const portfolioComponents: ThemeOptions['components'] = {
 
 export const darkTheme = createTheme({
     ...darkPortfolioTokens,
-    components: portfolioComponents,
-})
-
-export const lightTheme = createTheme({
-    ...lightPortfolioTokens,
     components: portfolioComponents,
 })
 

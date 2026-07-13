@@ -15,10 +15,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert'
 import SettingsIcon from '@mui/icons-material/Settings'
 import LogoutIcon from '@mui/icons-material/Logout'
 import NotificationsIcon from '@mui/icons-material/Notifications'
-import Brightness4Icon from '@mui/icons-material/Brightness4'
-import Brightness7Icon from '@mui/icons-material/Brightness7'
 import { useConnection } from '../contexts/ConnectionContext'
-import { useTheme } from '../contexts/theme-context'
 import { TransferDialogButton } from './transfer-dialog-button'
 import { TransferDialog } from './transfer-dialog'
 
@@ -28,7 +25,6 @@ export const Header = () => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
     const [transferDialogOpen, setTransferDialogOpen] = useState(false)
     const menuOpen = Boolean(anchorEl)
-    const { isDarkMode, toggleTheme } = useTheme()
     const { status, connect, disconnect } = useConnection()
     const connected = status?.connection?.isConnected
 
@@ -86,16 +82,6 @@ export const Header = () => {
                 </Typography>
 
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                    <IconButton
-                        onClick={toggleTheme}
-                        size="small"
-                        sx={{
-                            color: 'text.secondary',
-                        }}
-                    >
-                        {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
-                    </IconButton>
-
                     {!connected && (
                         <Button
                             variant="contained"
