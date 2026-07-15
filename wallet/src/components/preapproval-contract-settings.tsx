@@ -111,11 +111,14 @@ export function PreapprovalContractSettings() {
                 })
                 toast.success('Preapproval contract created')
             } catch (error) {
-                toast.error(
+                console.error('Preapproval contract creation failed:', error)
+                const message =
                     error instanceof Error
                         ? error.message
-                        : 'Failed to create preapproval contract'
-                )
+                        : typeof error === 'string'
+                          ? error
+                          : JSON.stringify(error)
+                toast.error(`Failed to create preapproval contract: ${message}`)
             }
         },
     })
