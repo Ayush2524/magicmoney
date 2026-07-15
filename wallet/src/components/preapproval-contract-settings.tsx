@@ -97,13 +97,26 @@ export function PreapprovalContractSettings() {
                 formData.selectedAssetKeys.includes(getAssetKey(asset))
             )
 
-            await createPreapprovalContractsMutation.mutateAsync({
-                receiver: primaryParty,
-                operator: formData.operatorParty.trim(),
-                instrumentAdmin: selectedAssets[0].admin,
-                assets: selectedAssets,
-            })
-            toast.success('Preapproval contract created')
+            if (selectedAssets.length === 0) {
+                toast.error('Select at least one asset')
+                return
+            }
+
+            try {
+                await createPreapprovalContractsMutation.mutateAsync({
+                    receiver: primaryParty,
+                    operator: formData.operatorParty.trim(),
+                    instrumentAdmin: selectedAssets[0].admin,
+                    assets: selectedAssets,
+                })
+                toast.success('Preapproval contract created')
+            } catch (error) {
+                toast.error(
+                    error instanceof Error
+                        ? error.message
+                        : 'Failed to create preapproval contract'
+                )
+            }
         },
     })
 
