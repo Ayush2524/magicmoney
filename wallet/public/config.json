@@ -3,26 +3,26 @@
         "baseUrl": "/wallet/ledger-api"
     },
     "auth": {
-        "method": "self_signed",
-        "issuer": "unsafe-auth",
+        "method": "client_credentials",
+        "configUrl": "https://auth.3-7-148-244.sslip.io/realms/magicmoney/.well-known/openid-configuration",
         "credentials": {
-            "clientId": "ledger-api-user",
-            "clientSecret": "unsafe",
-            "audience": "https://canton.network.global",
+            "clientId": "validator-backend",
+            "clientSecret": "xx5sJgfUKdsQHku5HgcQNtPmyYx5N3",
+            "audience": "https://ledger-api.magicmoney",
             "scope": ""
         }
     },
     "amulet": {
-        "validatorUrl": "http://localhost:2000/api/validator",
-        "registry": "http://scan.localhost:4000"
+        "validatorUrl": "https://wallet.3-7-148-244.sslip.io/api/validator",
+        "registry": "https://scan.sv-1.global.canton.network.sync.global"
     },
     "token": {
-        "validatorUrl": "http://localhost:2000/api/validator",
+        "validatorUrl": "https://wallet.3-7-148-244.sslip.io/api/validator",
         "registries": [
             {
-                "name": "Local Scan",
+                "name": "Global Synchronizer Foundation Scan",
                 "partyId": "",
-                "url": "http://scan.localhost:4000"
+                "url": "https://scan.sv-1.global.canton.network.sync.global"
             }
         ]
     }

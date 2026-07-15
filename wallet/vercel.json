@@ -3,6 +3,10 @@
     "outputDirectory": "dist",
     "rewrites": [
         {
+            "source": "/ledger-api/:path*",
+            "destination": "https://ledger-api.3-7-148-244.sslip.io/:path*"
+        },
+        {
             "source": "/((?!ledger-api).*)",
             "destination": "/index.html"
         }
