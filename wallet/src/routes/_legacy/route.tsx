@@ -1,26 +1,13 @@
-import { Outlet, createFileRoute } from '@tanstack/react-router'
-import { Container } from '@mui/material'
-import { Header } from '../../components/header'
-import { NetworkBanner } from '../../components/network-banner'
-import { RegistryValidationModal } from '../../components/registry-validation-modal'
-import { useRegistryValidation } from '../../hooks/useRegistryValidation'
+import { Navigate, createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_legacy')({
     component: LegacyLayout,
 })
 
+// The legacy UI (header-based layout, generic third-party-registry
+// preapproval form) has been superseded by the /next UI. Redirect
+// everything under this layout there rather than maintaining two
+// parallel experiences.
 function LegacyLayout() {
-    const validationStatus = useRegistryValidation()
-
-    return (
-        <>
-            <NetworkBanner />
-            <Container maxWidth="lg">
-                <Header />
-                <Outlet />
-            </Container>
-
-            <RegistryValidationModal validationStatus={validationStatus} />
-        </>
-    )
+    return <Navigate to="/next/connect" replace />
 }
