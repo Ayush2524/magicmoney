@@ -14,7 +14,7 @@
     },
     "amulet": {
         "validatorUrl": "https://wallet.3-7-148-244.sslip.io/api/validator",
-        "registry": "https://scan.sv-1.global.canton.network.sync.global"
+        "registry": "https://scan-api.3-7-148-244.sslip.io"
     },
     "token": {
         "validatorUrl": "https://wallet.3-7-148-244.sslip.io/api/validator",
@@ -22,7 +22,7 @@
             {
                 "name": "Global Synchronizer Foundation Scan",
                 "partyId": "",
-                "url": "https://scan.sv-1.global.canton.network.sync.global"
+                "url": "https://scan-api.3-7-148-244.sslip.io"
             }
         ]
     }
