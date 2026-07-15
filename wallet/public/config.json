@@ -9,7 +9,7 @@
             "clientId": "validator-backend",
             "clientSecret": "xx5sJgfUKdsQHku5HgcQNtPmyYx5N3",
             "audience": "https://ledger-api.magicmoney",
-            "scope": ""
+            "scope": "openid"
         }
     },
     "amulet": {
