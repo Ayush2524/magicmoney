@@ -10,6 +10,7 @@ import {
     forgetStoredWallet as forgetStoredWalletKey,
     type LocalWallet,
 } from '@lib/wallet-client'
+import { syncUserProfile } from '@lib/users'
 import { clear as clearResolvedServices } from '../services/resolve'
 import { usePortfolioConfig } from '@contexts/PortfolioConfigContext'
 import {
@@ -48,6 +49,7 @@ export const ConnectionProvider: React.FC<{ children: React.ReactNode }> = ({
                 clearResolvedServices()
                 setWallet(stored)
                 setError(undefined)
+                void syncUserProfile(stored.partyId, stored.hint)
                 return
             }
 
@@ -56,6 +58,7 @@ export const ConnectionProvider: React.FC<{ children: React.ReactNode }> = ({
                     clearResolvedServices()
                     setWallet(created)
                     setError(undefined)
+                    void syncUserProfile(created.partyId, created.hint)
                 })
                 .catch((err: unknown) => {
                     const message =
