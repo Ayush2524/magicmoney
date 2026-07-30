@@ -37,6 +37,42 @@ export default defineConfig({
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/wallet\/ledger-api/, ''),
             },
+            // The Keycloak realm's token endpoint doesn't send CORS headers
+            // either, so the browser's client_credentials token POST fails
+            // outright. Proxy the whole auth host through the dev server,
+            // and rewrite the OIDC discovery document's absolute endpoint
+            // URLs to point back at this same proxy path, so the follow-up
+            // token request also stays same-origin instead of going direct.
+            '/wallet/auth-proxy': {
+                target: 'https://auth.3-7-148-244.sslip.io',
+                changeOrigin: true,
+                rewrite: (path) => path.replace(/^\/wallet\/auth-proxy/, ''),
+                selfHandleResponse: true,
+                configure: (proxy) => {
+                    proxy.on('proxyRes', (proxyRes, _req, res) => {
+                        const chunks: Buffer[] = []
+                        proxyRes.on('data', (chunk) => chunks.push(chunk))
+                        proxyRes.on('end', () => {
+                            const body = Buffer.concat(chunks).toString('utf-8')
+                            const rewritten = body.replaceAll(
+                                'https://auth.3-7-148-244.sslip.io',
+                                '/wallet/auth-proxy'
+                            )
+                            Object.entries(proxyRes.headers).forEach(
+                                ([key, value]) => {
+                                    if (
+                                        value !== undefined &&
+                                        key.toLowerCase() !== 'content-length'
+                                    ) {
+                                        res.setHeader(key, value)
+                                    }
+                                }
+                            )
+                            res.end(rewritten)
+                        })
+                    })
+                },
+            },
         },
     },
 })

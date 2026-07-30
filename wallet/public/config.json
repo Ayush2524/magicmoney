@@ -4,7 +4,7 @@
     },
     "auth": {
         "method": "client_credentials",
-        "configUrl": "https://auth.3-7-148-244.sslip.io/realms/magicmoney/.well-known/openid-configuration",
+        "configUrl": "/wallet/auth-proxy/realms/magicmoney/.well-known/openid-configuration",
         "credentials": {
             "clientId": "validator-backend",
             "clientSecret": "xx5sJgfUKdsQHku5HgcQNtPmyYx5N3",
